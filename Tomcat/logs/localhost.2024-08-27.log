@@ -1,0 +1,1440 @@
+27-Aug-2024 07:15:01.853 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+27-Aug-2024 07:15:01.853 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+27-Aug-2024 07:15:01.855 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@515c732d')
+27-Aug-2024 08:31:31.481 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+27-Aug-2024 08:31:31.481 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+27-Aug-2024 08:55:48.810 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+27-Aug-2024 08:55:48.810 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+27-Aug-2024 08:55:48.811 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@19c1f6f4')
+27-Aug-2024 08:56:28.163 SEVERE [http-nio-8080-exec-11] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [Ha sucedido una excepción al procesar la página JSP [/mostrarProductos.jsp] en línea [21]
+
+18:         <%
+19:             List<producto> listaProductos = (List) request.getSession().getAttribute("listaProductos");
+20:             int cont = 1;
+21:             for(producto usu : listaProductos){
+22:         %>
+23:         
+24:         <p><b>Producto N°<%=cont%></b></p>
+
+
+Stacktrace:] con causa raíz
+	java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "listaProductos" is null
+		at org.apache.jsp.mostrarProductos_jsp._jspService(mostrarProductos_jsp.java:137)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 09:01:25.945 SEVERE [http-nio-8080-exec-22] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [SvProductosProveedor] lanzó excepción
+	javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.10.v20211216-fe64cd39c3): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '251-1' for key 'productoproveedor.IdProducto'
+Error Code: 1062
+Call: INSERT INTO PRODUCTOPROVEEDOR (IDPRODUCTOPROVEEDOR, CLAVEPRODUCTOPROVEEDOR, COSTO, IDPRODUCTO, IDPROVEEDOR) VALUES (?, ?, ?, ?, ?)
+	bind => [5 parameters bound]
+Query: InsertObjectQuery(logica.productoproveedor@347675b0)
+		at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:161)
+		at persistencia.productoproveedorJpaController.create(productoproveedorJpaController.java:47)
+		at persistencia.ControladorPersistencia.crearProductoProveedor(ControladorPersistencia.java:70)
+		at logica.Controladora.crearProductoProveedor(Controladora.java:50)
+		at servlets.SvProductosProveedor.doPost(SvProductosProveedor.java:52)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+	Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.10.v20211216-fe64cd39c3): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '251-1' for key 'productoproveedor.IdProducto'
+Error Code: 1062
+Call: INSERT INTO PRODUCTOPROVEEDOR (IDPRODUCTOPROVEEDOR, CLAVEPRODUCTOPROVEEDOR, COSTO, IDPRODUCTO, IDPROVEEDOR) VALUES (?, ?, ?, ?, ?)
+	bind => [5 parameters bound]
+Query: InsertObjectQuery(logica.productoproveedor@347675b0)
+		at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:333)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:908)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:970)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:640)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2105)
+		at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:313)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:277)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:263)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:413)
+		at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:167)
+		at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:182)
+		at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:504)
+		at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:82)
+		at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:92)
+		at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:316)
+		at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:60)
+		at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+		at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+		at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:110)
+		at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:87)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:3004)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1898)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1880)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1830)
+		at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:229)
+		at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:128)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4409)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1503)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1593)
+		at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitRootUnitOfWork(RepeatableWriteUnitOfWork.java:280)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitAndResume(UnitOfWorkImpl.java:1230)
+		at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:136)
+		... 28 more
+	Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '251-1' for key 'productoproveedor.IdProducto'
+		at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:898)
+		... 59 more
+27-Aug-2024 09:10:00.136 SEVERE [http-nio-8080-exec-32] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [176] en el archivo jsp: [/EditarProducto.jsp]
+The method getProveedorNombre() is undefined for the type productoproveedor
+173:                 %>
+174:                 <tr>
+175:                     <td class="action-buttons">
+176:                         <button onclick="openEditModal('<%= prodprovee.getIdProveedor() %>', '<%= prodprovee.getProveedorNombre() %>')">Editar</button>
+177:                     </td>
+178:                     <td><%= prodprovee.getIdProveedor()%></td>
+179:                     <td><%= prodprovee.getClaveProductoProveedor()%></td>
+
+
+Stacktrace:] con causa raíz
+	org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [176] en el archivo jsp: [/EditarProducto.jsp]
+The method getProveedorNombre() is undefined for the type productoproveedor
+173:                 %>
+174:                 <tr>
+175:                     <td class="action-buttons">
+176:                         <button onclick="openEditModal('<%= prodprovee.getIdProveedor() %>', '<%= prodprovee.getProveedorNombre() %>')">Editar</button>
+177:                     </td>
+178:                     <td><%= prodprovee.getIdProveedor()%></td>
+179:                     <td><%= prodprovee.getClaveProductoProveedor()%></td>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:561)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:398)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:368)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:352)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 10:03:01.643 SEVERE [http-nio-8080-exec-169] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [SvProductosProveedorEditar] lanzó excepción
+	java.lang.NumberFormatException: For input string: "PAL002"
+		at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+		at java.base/java.lang.Integer.parseInt(Integer.java:665)
+		at java.base/java.lang.Integer.parseInt(Integer.java:781)
+		at servlets.SvProductosProveedorEditar.doPost(SvProductosProveedorEditar.java:55)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 10:18:23.686 SEVERE [http-nio-8080-exec-210] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [Ha sucedido una excepción al procesar la página JSP [/EditarProducto.jsp] en línea [103]
+
+100:             }
+101:         %>
+102:         <form action="<%= formAction%>" method="POST">
+103:             <p><label>ClaveProducto: </label> <input type="text" name="claveProducto" value="<%= prod.getClaveProducto() != null ? prod.getClaveProducto() : ""%>"></p>
+104:             <p><label>Nombre: </label> <input type="text" name="nombre" value="<%= prod.getNombre() != null ? prod.getNombre() : ""%>"></p>
+105:             <p><label>Precio: </label> <input type="text" name="precio" value="<%= prod.getPrecio() != null ? prod.getPrecio() : ""%>"></p>
+106:             <p><label>TipoProducto </label> 
+
+
+Stacktrace:] con causa raíz
+	java.lang.NullPointerException: Cannot invoke "logica.producto.getClaveProducto()" because "prod" is null
+		at org.apache.jsp.EditarProducto_jsp._jspService(EditarProducto_jsp.java:239)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 10:22:13.267 SEVERE [http-nio-8080-exec-228] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ";" to complete BlockStatements
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The field String.value is not visible
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The method euals(String) is undefined for the type String
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [120] en el archivo jsp: [/EditarProducto.jsp]
+isSelected cannot be resolved to a variable
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+122:                         }
+123:                     %>
+
+
+Stacktrace:] con causa raíz
+	org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ";" to complete BlockStatements
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The field String.value is not visible
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The method euals(String) is undefined for the type String
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [120] en el archivo jsp: [/EditarProducto.jsp]
+isSelected cannot be resolved to a variable
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+122:                         }
+123:                     %>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:561)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:398)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:368)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:352)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 10:22:23.186 SEVERE [http-nio-8080-exec-232] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ";" to complete BlockStatements
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The field String.value is not visible
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The method euals(String) is undefined for the type String
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [120] en el archivo jsp: [/EditarProducto.jsp]
+isSelected cannot be resolved to a variable
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+122:                         }
+123:                     %>
+
+
+Stacktrace:] con causa raíz
+	org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+Syntax error, insert ";" to complete BlockStatements
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The field String.value is not visible
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [118] en el archivo jsp: [/EditarProducto.jsp]
+The method euals(String) is undefined for the type String
+115:                     <%
+116:                         String selectedTipoId = String.valueOf(prod.getTipoProducto());
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+
+
+Ha tenido lugar un error en la línea: [120] en el archivo jsp: [/EditarProducto.jsp]
+isSelected cannot be resolved to a variable
+117:                         for (tipoproducto tipo : listaTipos) {
+118:                             String tipoIdStr = String.value                          boolean isSeleced = tipoIdStr.euals(selectedTipoId);
+119:                    %>
+120:                     <option value="<%= tipoIdStr%>" <%= isSelected ? "selected" : ""%>><%= tipo.getNombre()%></option>
+121:                     <%
+122:                         }
+123:                     %>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:561)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:398)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:368)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:352)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 10:30:18.418 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+27-Aug-2024 10:30:18.418 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+27-Aug-2024 22:17:42.155 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+27-Aug-2024 22:17:42.155 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+27-Aug-2024 22:17:42.157 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5939f047')
+27-Aug-2024 22:49:30.081 SEVERE [http-nio-8080-exec-17] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [65] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+62:         String buttonText = "Guardar";
+63: 
+64:         if (accion != null && accion.equals("agregar")) {
+65:             prod = new producto(); // Crear un nuevo objeto producto vac�o para agregar
+66:             formAction = "SvProductos"; // Cambia el action del formulario a SvAgregar
+67:             buttonText = "Agregar";
+68:         }
+
+
+Ha tenido lugar un error en la línea: [82] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+79:                     <select id="tipoProducto" name="tipoProducto">
+80:                         <%
+81:                             String selectedTipoId = String.valueOf(prod.getTipoProducto());
+82:                             for (tipoproducto tipo : listaTipos) {
+83:                                 String tipoIdStr = String.valueOf(tipo.getId());
+84:                                 boolean isSelected = tipoIdStr.equals(selectedTipoId);
+85:                         %>
+
+
+Ha tenido lugar un error en la línea: [110] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+107:                 <p><label>Proveedor: </label> 
+108:                     <select id="idProveedor" name="idProveedor">
+109:                         <%
+110:                             for (proveedor provee : listaProveedores) {
+111:                         %>
+112:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+113:                         <%
+
+
+Ha tenido lugar un error en la línea: [135] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+132:                 <p><label>Proveedor: </label> 
+133:                     <select id="idProveedor" name="idProveedor">
+134:                         <%
+135:                             for (proveedor provee : listaProveedores) {
+136:                         %>
+137:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+138:                         <%
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [165] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+166:             %>
+167:             <tr>
+168:                 <td class="action-buttons">
+
+
+Stacktrace:] con causa raíz
+	org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [65] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+62:         String buttonText = "Guardar";
+63: 
+64:         if (accion != null && accion.equals("agregar")) {
+65:             prod = new producto(); // Crear un nuevo objeto producto vac�o para agregar
+66:             formAction = "SvProductos"; // Cambia el action del formulario a SvAgregar
+67:             buttonText = "Agregar";
+68:         }
+
+
+Ha tenido lugar un error en la línea: [82] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+79:                     <select id="tipoProducto" name="tipoProducto">
+80:                         <%
+81:                             String selectedTipoId = String.valueOf(prod.getTipoProducto());
+82:                             for (tipoproducto tipo : listaTipos) {
+83:                                 String tipoIdStr = String.valueOf(tipo.getId());
+84:                                 boolean isSelected = tipoIdStr.equals(selectedTipoId);
+85:                         %>
+
+
+Ha tenido lugar un error en la línea: [110] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+107:                 <p><label>Proveedor: </label> 
+108:                     <select id="idProveedor" name="idProveedor">
+109:                         <%
+110:                             for (proveedor provee : listaProveedores) {
+111:                         %>
+112:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+113:                         <%
+
+
+Ha tenido lugar un error en la línea: [135] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+132:                 <p><label>Proveedor: </label> 
+133:                     <select id="idProveedor" name="idProveedor">
+134:                         <%
+135:                             for (proveedor provee : listaProveedores) {
+136:                         %>
+137:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+138:                         <%
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [165] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+166:             %>
+167:             <tr>
+168:                 <td class="action-buttons">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:561)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:398)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:368)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:352)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 22:49:36.605 SEVERE [http-nio-8080-exec-11] org.apache.catalina.core.StandardWrapperValve.invoke El Servlet.service() para el servlet [jsp] en el contexto con ruta [/PracticaWebJava] lanzó la excepción [No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [65] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+62:         String buttonText = "Guardar";
+63: 
+64:         if (accion != null && accion.equals("agregar")) {
+65:             prod = new producto(); // Crear un nuevo objeto producto vac�o para agregar
+66:             formAction = "SvProductos"; // Cambia el action del formulario a SvAgregar
+67:             buttonText = "Agregar";
+68:         }
+
+
+Ha tenido lugar un error en la línea: [82] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+79:                     <select id="tipoProducto" name="tipoProducto">
+80:                         <%
+81:                             String selectedTipoId = String.valueOf(prod.getTipoProducto());
+82:                             for (tipoproducto tipo : listaTipos) {
+83:                                 String tipoIdStr = String.valueOf(tipo.getId());
+84:                                 boolean isSelected = tipoIdStr.equals(selectedTipoId);
+85:                         %>
+
+
+Ha tenido lugar un error en la línea: [110] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+107:                 <p><label>Proveedor: </label> 
+108:                     <select id="idProveedor" name="idProveedor">
+109:                         <%
+110:                             for (proveedor provee : listaProveedores) {
+111:                         %>
+112:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+113:                         <%
+
+
+Ha tenido lugar un error en la línea: [135] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+132:                 <p><label>Proveedor: </label> 
+133:                     <select id="idProveedor" name="idProveedor">
+134:                         <%
+135:                             for (proveedor provee : listaProveedores) {
+136:                         %>
+137:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+138:                         <%
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [165] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+166:             %>
+167:             <tr>
+168:                 <td class="action-buttons">
+
+
+Stacktrace:] con causa raíz
+	org.apache.jasper.JasperException: No se puede compilar la clase para JSP: 
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [56] en el archivo jsp: [/EditarProducto.jsp]
+Controladora cannot be resolved to a type
+53: <body>
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [57] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+54:     <h1><%= (request.getParameter("accion") != null && request.getParameter("accion").equals("agregar")) ? "Agregar Producto" : "Editar Producto"%></h1>
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [58] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+55:     <%
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [59] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+56:         Controladora control = new Controladora();
+57:         List<tipoproducto> listaTipos = control.traerTipos();
+58:         List<proveedor> listaProveedores = control.traerProveedores();
+59:         producto prod = (producto) request.getSession().getAttribute("prodEditar");
+60:         String accion = request.getParameter("accion");
+61:         String formAction = "SvEditar";
+62:         String buttonText = "Guardar";
+
+
+Ha tenido lugar un error en la línea: [65] en el archivo jsp: [/EditarProducto.jsp]
+producto cannot be resolved to a type
+62:         String buttonText = "Guardar";
+63: 
+64:         if (accion != null && accion.equals("agregar")) {
+65:             prod = new producto(); // Crear un nuevo objeto producto vac�o para agregar
+66:             formAction = "SvProductos"; // Cambia el action del formulario a SvAgregar
+67:             buttonText = "Agregar";
+68:         }
+
+
+Ha tenido lugar un error en la línea: [82] en el archivo jsp: [/EditarProducto.jsp]
+tipoproducto cannot be resolved to a type
+79:                     <select id="tipoProducto" name="tipoProducto">
+80:                         <%
+81:                             String selectedTipoId = String.valueOf(prod.getTipoProducto());
+82:                             for (tipoproducto tipo : listaTipos) {
+83:                                 String tipoIdStr = String.valueOf(tipo.getId());
+84:                                 boolean isSelected = tipoIdStr.equals(selectedTipoId);
+85:                         %>
+
+
+Ha tenido lugar un error en la línea: [110] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+107:                 <p><label>Proveedor: </label> 
+108:                     <select id="idProveedor" name="idProveedor">
+109:                         <%
+110:                             for (proveedor provee : listaProveedores) {
+111:                         %>
+112:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+113:                         <%
+
+
+Ha tenido lugar un error en la línea: [135] en el archivo jsp: [/EditarProducto.jsp]
+proveedor cannot be resolved to a type
+132:                 <p><label>Proveedor: </label> 
+133:                     <select id="idProveedor" name="idProveedor">
+134:                         <%
+135:                             for (proveedor provee : listaProveedores) {
+136:                         %>
+137:                         <option value="<%= provee.getIdProveedor()%>"><%= provee.getNombre()%></option>
+138:                         <%
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [162] en el archivo jsp: [/EditarProducto.jsp]
+List cannot be resolved to a type
+159:         </thead>
+160:         <tbody>
+161:             <%
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+
+
+Ha tenido lugar un error en la línea: [165] en el archivo jsp: [/EditarProducto.jsp]
+productoproveedor cannot be resolved to a type
+162:                 List<productoproveedor> listaProductosProveedores = (List) request.getSession().getAttribute("listaProductosProveedores");
+163:                 int cont = 1;
+164:                 if (listaProductosProveedores != null && !listaProductosProveedores.isEmpty()) {
+165:                     for (productoproveedor prodprovee : listaProductosProveedores) {
+166:             %>
+167:             <tr>
+168:                 <td class="action-buttons">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:561)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:398)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:368)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:352)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:376)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:324)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+27-Aug-2024 23:46:47.494 SEVERE [http-nio-8080-exec-29] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() para servlet [SvProductos] lanzó excepción
+	javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.10.v20211216-fe64cd39c3): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLException: Incorrect decimal value: '' for column 'Precio' at row 1
+Error Code: 1366
+Call: INSERT INTO PRODUCTO (IDPRODUCTO, IDTIPOPRODUCTO, CLAVEPRODUCTO, NOMBRE, PRECIO) VALUES (?, ?, ?, ?, ?)
+	bind => [5 parameters bound]
+Query: InsertObjectQuery(logica.producto@3c009cf2)
+		at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:161)
+		at persistencia.productoJpaController.create(productoJpaController.java:47)
+		at persistencia.ControladorPersistencia.crearProducto(ControladorPersistencia.java:23)
+		at logica.Controladora.crearProducto(Controladora.java:14)
+		at servlets.SvProductos.doPost(SvProductos.java:57)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1589)
+	Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.10.v20211216-fe64cd39c3): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLException: Incorrect decimal value: '' for column 'Precio' at row 1
+Error Code: 1366
+Call: INSERT INTO PRODUCTO (IDPRODUCTO, IDTIPOPRODUCTO, CLAVEPRODUCTO, NOMBRE, PRECIO) VALUES (?, ?, ?, ?, ?)
+	bind => [5 parameters bound]
+Query: InsertObjectQuery(logica.producto@3c009cf2)
+		at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:333)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:908)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:970)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:640)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2105)
+		at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:313)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:277)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:263)
+		at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:413)
+		at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:167)
+		at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:182)
+		at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:504)
+		at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:82)
+		at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:92)
+		at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:316)
+		at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:60)
+		at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+		at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+		at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:110)
+		at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:87)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:3004)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1898)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1880)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1830)
+		at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:229)
+		at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:128)
+		at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4409)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1503)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1593)
+		at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitRootUnitOfWork(RepeatableWriteUnitOfWork.java:280)
+		at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitAndResume(UnitOfWorkImpl.java:1230)
+		at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:136)
+		... 28 more
+	Caused by: java.sql.SQLException: Incorrect decimal value: '' for column 'Precio' at row 1
+		at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+		at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320)
+		at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
+		at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:898)
+		... 59 more
